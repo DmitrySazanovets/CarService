@@ -80,6 +80,17 @@ class InfoBarVC: UIViewController {
         secondInfoFields[2].inputView = pickerView
         secondInfoFields[3].inputView = pickerView
         secondInfoFields[4].inputView = pickerView
+        
+        mileageUpdateTF.layer.borderWidth = 1
+        mileageUpdateTF.layer.cornerRadius = 8
+        commentUpdateTF.layer.borderWidth = 1
+        commentUpdateTF.layer.cornerRadius = 8
+        
+        secondInfoFields.forEach {
+            $0.layer.borderWidth = 1
+            $0.layer.cornerRadius = 8
+        }
+        
     }
     private func updateInfo() {
         RealmManager.updating { [weak self] in

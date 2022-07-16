@@ -146,6 +146,22 @@ class AddCarVC: UIViewController {
         typeFuelField.inputView = pickerView
         colorCarField.inputView = pickerView
         ageTVField.inputView = pickerView
+        
+        saveButton.layer.borderWidth = 2
+        saveButton.layer.borderColor = UIColor.systemMint.cgColor
+        saveButton.layer.cornerRadius = 8
+        commentTF.layer.borderWidth = 1
+        commentTF.layer.cornerRadius = 8
+        typeTVField.layer.borderWidth = 1
+        typeTVField.layer.cornerRadius = 8
+        typeFuelField.layer.borderWidth = 1
+        typeFuelField.layer.cornerRadius = 8
+        typeEngineField.layer.borderWidth = 1
+        typeEngineField.layer.cornerRadius = 8
+        ageTVField.layer.borderWidth = 1
+        ageTVField.layer.cornerRadius = 8
+        colorCarField.layer.borderWidth = 1
+        colorCarField.layer.cornerRadius = 8
     }
     
     private func setupTableView() {
@@ -212,7 +228,7 @@ extension AddCarVC: UITextFieldDelegate {
         for tf in mainTFs {
             
             tf.layer.borderColor = tf.text == "" ? UIColor.red.cgColor :  UIColor.black.cgColor
-            tf.layer.borderWidth = tf.text == "" ? 1 : 0
+            tf.layer.borderWidth = tf.text == "" ? 1 : 1
             saveButton.isEnabled = tf.text == "" ? false : true
         }
         

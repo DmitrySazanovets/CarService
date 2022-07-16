@@ -46,15 +46,10 @@ class AddService: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        closeKeyB()
         
-        typeServiceTF.inputView = picker
-        dateServiceTF.inputView = datePicker
-        picker.dataSource = self
-        picker.delegate = self
-        dateServiceTF.delegate = self
-        costWork.delegate = self
-        costItemTF.delegate = self
+        closeKeyB()
+        setupIU()
+
         
     }
     
@@ -94,6 +89,29 @@ class AddService: UIViewController {
         }
         
         costFull.text = String(itemInt + workInt)
+    }
+    
+    private func setupIU(){
+        typeServiceTF.inputView = picker
+        dateServiceTF.inputView = datePicker
+        picker.dataSource = self
+        picker.delegate = self
+        dateServiceTF.delegate = self
+        costWork.delegate = self
+        costItemTF.delegate = self
+        
+        typeServiceTF.layer.borderWidth = 1
+        typeServiceTF.layer.cornerRadius = 8
+        dateServiceTF.layer.borderWidth = 1
+        dateServiceTF.layer.cornerRadius = 8
+        millageServiceTF.layer.borderWidth = 1
+        millageServiceTF.layer.cornerRadius = 8
+        costItemTF.layer.borderWidth = 1
+        costItemTF.layer.cornerRadius = 8
+        costWork.layer.borderWidth = 1
+        costWork.layer.cornerRadius = 8
+        costFull.layer.borderWidth = 1
+        costFull.layer.cornerRadius = 8
     }
 
 }

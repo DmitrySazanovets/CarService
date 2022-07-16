@@ -45,14 +45,7 @@ class AddPaperVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyB()
-
-        typeDock.inputView = picker
-        beginDock.inputView = datePicker
-        endDock.inputView = datePicker
-        picker.dataSource = self
-        picker.delegate = self
-        beginDock.delegate = self
-        endDock.delegate = self
+        setupUI()
         
     }
 
@@ -72,6 +65,27 @@ class AddPaperVC: UIViewController {
             self.delegate?.paperDidSaved()
         }
         navigationController?.popViewController(animated: true)
+    }
+    private func setupUI(){
+        typeDock.inputView = picker
+        beginDock.inputView = datePicker
+        endDock.inputView = datePicker
+        picker.dataSource = self
+        picker.delegate = self
+        beginDock.delegate = self
+        endDock.delegate = self
+        
+        typeDock.layer.borderWidth = 1
+        typeDock.layer.cornerRadius = 8
+        beginDock.layer.borderWidth = 1
+        beginDock.layer.cornerRadius = 8
+        endDock.layer.borderWidth = 1
+        endDock.layer.cornerRadius = 8
+        costDock.layer.borderWidth = 1
+        costDock.layer.cornerRadius = 8
+        commentDock.layer.borderWidth = 1
+        commentDock.layer.cornerRadius = 8
+
     }
     
     @objc func dismissKeyboard() {

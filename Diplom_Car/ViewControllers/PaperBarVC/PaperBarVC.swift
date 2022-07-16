@@ -18,7 +18,7 @@ class PaperBarVC: UIViewController {
         super.viewDidLoad()
 
         emptyLabel.isHidden = !(vechicleModel?.services.isEmpty ?? true) ? true : false
-        tableView.rowHeight = 70
+        tableView.rowHeight = 60
         setupTableView()
     }
     private func setupTableView() {

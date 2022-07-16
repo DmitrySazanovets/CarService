@@ -17,6 +17,7 @@ class GarageVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var AddButton: UIButton!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -58,6 +59,9 @@ class GarageVC: UIViewController {
     // MARK: - UI
     private func setupUI() {
         setupTableView()
+        AddButton.layer.borderWidth = 2
+        AddButton.layer.borderColor = UIColor.systemMint.cgColor
+        AddButton.layer.cornerRadius = 8
     }
     
     private func setupTableView() {

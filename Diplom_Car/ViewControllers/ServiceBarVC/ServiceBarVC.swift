@@ -27,6 +27,8 @@ class ServiceBarVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: String(describing: ServiceCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ServiceCell.self))
+        tableView.rowHeight = 90
+
     }
 
     @IBAction func addServiceButtonAction(_ sender: Any) {

@@ -18,19 +18,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вид документа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMs-vl-Yul">
-                        <rect key="frame" x="5" y="5" width="121" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="5" y="5" width="140" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стоимость" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-2M-0fB">
-                        <rect key="frame" x="164" y="15" width="86.5" height="20.5"/>
+                        <rect key="frame" x="149" y="15" width="86.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sV2-F6-pOc">
-                        <rect key="frame" x="5" y="30.5" width="82" height="14.5"/>
+                        <rect key="frame" x="5" y="32" width="82" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,12 +57,12 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dM3-jy-pp1" firstAttribute="leading" secondItem="sDC-2M-0fB" secondAttribute="trailing" constant="15" id="5Vc-7t-b85"/>
+                    <constraint firstItem="sV2-F6-pOc" firstAttribute="top" secondItem="YMs-vl-Yul" secondAttribute="bottom" constant="3" id="4cW-6I-XgR"/>
+                    <constraint firstItem="dM3-jy-pp1" firstAttribute="leading" secondItem="sDC-2M-0fB" secondAttribute="trailing" constant="30" id="5Vc-7t-b85"/>
                     <constraint firstItem="dM3-jy-pp1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="6Qt-Bj-bZT"/>
                     <constraint firstAttribute="trailing" secondItem="dM3-jy-pp1" secondAttribute="trailing" constant="5" id="8Nl-a0-Bcz"/>
                     <constraint firstItem="dM3-jy-pp1" firstAttribute="centerY" secondItem="sDC-2M-0fB" secondAttribute="centerY" id="ReY-zJ-LHJ"/>
                     <constraint firstItem="YMs-vl-Yul" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Tbk-8q-MHY"/>
-                    <constraint firstAttribute="bottom" secondItem="sV2-F6-pOc" secondAttribute="bottom" constant="5" id="bQg-8s-ZIz"/>
                     <constraint firstAttribute="bottom" secondItem="dM3-jy-pp1" secondAttribute="bottom" constant="5" id="eqG-gC-gcE"/>
                     <constraint firstItem="sDC-2M-0fB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oyf-6P-vGk"/>
                     <constraint firstItem="YMs-vl-Yul" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="wlr-Ne-JVw"/>

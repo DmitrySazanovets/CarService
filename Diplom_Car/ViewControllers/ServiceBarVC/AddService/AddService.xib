@@ -26,8 +26,14 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSn-Fj-e77">
                     <rect key="frame" x="16" y="811" width="382" height="31"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray" title="Сохранить"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Сохранить" cornerStyle="fixed">
+                        <backgroundConfiguration key="background" strokeWidth="2">
+                            <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            <color key="strokeColor" systemColor="systemMintColor"/>
+                        </backgroundConfiguration>
+                    </buttonConfiguration>
                     <connections>
                         <action selector="saveServiceAction:" destination="-1" eventType="touchUpInside" id="aKN-iV-YEW"/>
                     </connections>
@@ -106,8 +112,14 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
