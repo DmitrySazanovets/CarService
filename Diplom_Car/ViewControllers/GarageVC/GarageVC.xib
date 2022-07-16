@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GarageVC" customModule="Diplom_Car" customModuleProvider="target">
+            <connections>
+                <outlet property="emptyLabel" destination="JbH-fE-Hap" id="DCl-ub-bZy"/>
+                <outlet property="tableView" destination="ffm-QO-tHH" id="VM7-4j-afC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гараж" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09j-Na-h7W">
+                    <rect key="frame" x="16" y="64" width="248" height="36"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ffm-QO-tHH">
+                    <rect key="frame" x="0.0" y="110" width="414" height="705"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="a6d-UC-Cib"/>
+                        <outlet property="delegate" destination="-1" id="K7t-ai-xb4"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH0-gz-oQq">
+                    <rect key="frame" x="352.5" y="66.5" width="45.5" height="31"/>
+                    <buttonConfiguration key="configuration" style="plain" imagePadding="1">
+                        <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOE-Oa-rI7">
+                    <rect key="frame" x="16" y="825" width="382" height="41"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="IZF-Ew-b9N"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemGray5Color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Добавить транспортное средство" imagePadding="22" titleAlignment="center">
+                        <imageReference key="image" image="car.fill" catalog="system" symbolScale="large"/>
+                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="addCarActionButton:" destination="-1" eventType="touchUpInside" id="MEf-E6-zaE"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Здесь пусто, добавь ТС" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbH-fE-Hap">
+                    <rect key="frame" x="48.5" y="430" width="317" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="09j-Na-h7W" secondAttribute="trailing" constant="150" id="2ry-km-dZc"/>
+                <constraint firstAttribute="bottom" secondItem="ZOE-Oa-rI7" secondAttribute="bottom" constant="30" id="3CZ-wr-Zrn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ffm-QO-tHH" secondAttribute="trailing" id="Kde-4q-Tm3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZOE-Oa-rI7" secondAttribute="trailing" constant="16" id="MSd-jn-3Jp"/>
+                <constraint firstItem="09j-Na-h7W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="R5Q-58-gyS"/>
+                <constraint firstItem="09j-Na-h7W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="V11-DT-vJP"/>
+                <constraint firstItem="ffm-QO-tHH" firstAttribute="top" secondItem="09j-Na-h7W" secondAttribute="bottom" constant="10" id="adV-ku-Vdw"/>
+                <constraint firstItem="ffm-QO-tHH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cnU-Df-Hce"/>
+                <constraint firstItem="BH0-gz-oQq" firstAttribute="centerY" secondItem="09j-Na-h7W" secondAttribute="centerY" id="d7x-2f-ufc"/>
+                <constraint firstItem="JbH-fE-Hap" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="dRm-0Y-Amp"/>
+                <constraint firstItem="JbH-fE-Hap" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eTz-Mb-Pdy"/>
+                <constraint firstItem="ZOE-Oa-rI7" firstAttribute="top" secondItem="ffm-QO-tHH" secondAttribute="bottom" constant="10" id="hWC-Vz-tyd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BH0-gz-oQq" secondAttribute="trailing" constant="16" id="nz8-jx-KDj"/>
+                <constraint firstItem="ZOE-Oa-rI7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="o5W-Ab-3o0"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="BH0-gz-oQq"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="car.fill" catalog="system" width="128" height="93"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
