@@ -9,22 +9,25 @@ import UIKit
 
 class PaperBarVC: UIViewController {
     
-    private let vechicleModel = RealmManager.read(type: TransportVehicleModel.self).first(where: { $0.isSelected })
+    private var vechicleModel = RealmManager.read(type: TransportVehicleModel.self).first(where: { $0.isSelected })
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        emptyLabel.isHidden = !(vechicleModel?.services.isEmpty ?? true) ? true : false
-        tableView.rowHeight = 60
         setupTableView()
+        
+        let swiping = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(sender:)))
+        view.addGestureRecognizer(swiping)
+        
+        emptyLabel.isHidden = !(vechicleModel?.papers.isEmpty ?? true) ? true : false
     }
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: String(describing: PaperCell.self), bundle: nil), forCellReuseIdentifier: String(describing: PaperCell.self))
+        tableView.rowHeight = 60
     }
     
     @IBAction func addDockButtonAction(_ sender: Any) {
@@ -33,6 +36,13 @@ class PaperBarVC: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func handleSwipes(sender:UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .right:
+            self.tabBarController?.selectedIndex = (self.tabBarController?.selectedIndex ?? 0) - 1
+        default: break
+        }
+    }
 
 }
 extension PaperBarVC: UITableViewDataSource, UITableViewDelegate {
@@ -53,12 +63,42 @@ extension PaperBarVC: UITableViewDataSource, UITableViewDelegate {
 //        tableView.cell
 //        RealmManager.delete(object: TransportPaper[indexPath.row])
         }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            let alertController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .actionSheet)
+            let deleteAction = UIAlertAction(title: "delete", style: .destructive) { [weak self] _ in
+                guard let self = self else { return }
+                
+                let model = self.vechicleModel?.papers [indexPath.row]
+                
+                RealmManager.delete(object: model!)
+                
+                
+                self.vechicleModel = RealmManager.read(type: TransportVehicleModel.self).first(where: { $0.isSelected })
+                self.emptyLabel.isHidden = !(self.vechicleModel?.papers.isEmpty ?? true) ? true : false
+                tableView.reloadData()
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        }
+        item.image = UIImage(systemName: "trash")
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        
+        return swipeActions
+    }
+
     
     
 }
 
 extension PaperBarVC: AddPaperVCDelegate {
     func paperDidSaved() {
+        emptyLabel.isHidden = !(vechicleModel?.papers.isEmpty ?? true) ? true : false
         tableView.reloadData()
     }
 }

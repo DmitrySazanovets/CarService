@@ -17,6 +17,8 @@ class BarController: UITabBarController {
     }
     
     private func setupContollers () {
+        
+        tabBar.tintColor = UIColor.systemMint
         let infoVC = InfoBarVC(nibName: String(describing: InfoBarVC.self), bundle: nil)
         let serviceVC = ServiceBarVC(nibName: String(describing: ServiceBarVC.self), bundle: nil)
         let paperVC = PaperBarVC(nibName: String(describing: PaperBarVC.self), bundle: nil)
@@ -24,11 +26,9 @@ class BarController: UITabBarController {
         infoVC.tabBarItem = UITabBarItem(title: "Информация", image: nil, tag: 0)
         serviceVC.tabBarItem = UITabBarItem(title: "Обслуживание", image: nil, tag: 1)
         paperVC.tabBarItem = UITabBarItem(title: "Документация", image: nil, tag: 2)
-        
-        
-        
+                
         self.viewControllers = [infoVC,serviceVC, paperVC]
-
     }
     
+
 }

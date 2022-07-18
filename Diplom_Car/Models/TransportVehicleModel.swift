@@ -26,7 +26,7 @@ class TransportVehicleModel: Object {
 
     
     let services = RealmSwift.List<TransportService>()
-    let papers = RealmSwift.List<TransportPaper>()
+    var papers = RealmSwift.List<TransportPaper>()
 
    convenience init(model: String? = nil,
                     brand: String? = nil,

@@ -34,6 +34,7 @@
 		5C92CDBE28564F7600155B30 /* ParcingJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92CDBD28564F7600155B30 /* ParcingJSON.swift */; };
 		5C92CDC22856550300155B30 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92CDC02856550300155B30 /* ListTableViewCell.swift */; };
 		5C92CDC32856550300155B30 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C92CDC12856550300155B30 /* ListTableViewCell.xib */; };
+		5CB5A6BE2885EBC30096D811 /* RealmCascadeDeleting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB5A6BD2885EBC30096D811 /* RealmCascadeDeleting.swift */; };
 		5CEA78F5287C6F610019EE8E /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA78F3287C6F610019EE8E /* ServiceCell.swift */; };
 		5CEA78F6287C6F610019EE8E /* ServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA78F4287C6F610019EE8E /* ServiceCell.xib */; };
 		5CEA78FA287C7FAA0019EE8E /* AddService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA78F8287C7FAA0019EE8E /* AddService.swift */; };
@@ -72,6 +73,7 @@
 		5C92CDBD28564F7600155B30 /* ParcingJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcingJSON.swift; sourceTree = "<group>"; };
 		5C92CDC02856550300155B30 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		5C92CDC12856550300155B30 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		5CB5A6BD2885EBC30096D811 /* RealmCascadeDeleting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCascadeDeleting.swift; sourceTree = "<group>"; };
 		5CEA78F3287C6F610019EE8E /* ServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
 		5CEA78F4287C6F610019EE8E /* ServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell.xib; sourceTree = "<group>"; };
 		5CEA78F8287C7FAA0019EE8E /* AddService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddService.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				5C92CD9B2856165100155B30 /* TransportVehicleModel.swift */,
 				5C92CD9D2856179200155B30 /* RealmManager.swift */,
 				5C82A74D28678791003AA305 /* ArrayInfoCar.swift */,
+				5CB5A6BD2885EBC30096D811 /* RealmCascadeDeleting.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				5C769D40284BF0E200DD06D2 /* GarageCell.swift in Sources */,
 				5C769D45284C0FE300DD06D2 /* AddCarVC.swift in Sources */,
 				5CEA78FF287C8F460019EE8E /* PaperCell.swift in Sources */,
+				5CB5A6BE2885EBC30096D811 /* RealmCascadeDeleting.swift in Sources */,
 				5C769D54284C18CA00DD06D2 /* InfoBarVC.swift in Sources */,
 				5C769D25284BE55B00DD06D2 /* SceneDelegate.swift in Sources */,
 				5CEA7904287C8FB50019EE8E /* AddPaperVC.swift in Sources */,

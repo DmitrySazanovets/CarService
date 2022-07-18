@@ -31,7 +31,9 @@ class InfoBarVC: UIViewController {
         pickerView.delegate = self
         arrayInfoCar.updateArray()
         
-        
+        let swiping = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(sender:)))
+        swiping.direction = .left
+        view.addGestureRecognizer(swiping)
     }
     @IBAction func updateInfoActionButton(_ sender: Any) {
         updateInfo()
@@ -52,6 +54,14 @@ class InfoBarVC: UIViewController {
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    @objc func handleSwipes(sender:UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .left:
+            self.tabBarController?.selectedIndex = (self.tabBarController?.selectedIndex ?? 0) + 1
+        default: break
+        }
     }
     private func closeKeyB(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -103,10 +113,6 @@ class InfoBarVC: UIViewController {
             self?.model?.color = self?.secondInfoFields[4].text
             self?.model?.image = self?.carImageView.image?.jpegData(compressionQuality: 1)
         }
-        
-
-            
-    
     }
 }
 extension InfoBarVC: UIPickerViewDataSource {

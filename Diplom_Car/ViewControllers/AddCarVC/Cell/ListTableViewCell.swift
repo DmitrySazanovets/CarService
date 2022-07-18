@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class ListTableViewCell: UITableViewCell {
     
     public var list: String? { didSet {

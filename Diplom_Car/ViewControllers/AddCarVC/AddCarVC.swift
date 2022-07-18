@@ -44,6 +44,8 @@ class AddCarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        closeKeyB()
         title = "Пополнение гаража"
         
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -58,7 +60,6 @@ class AddCarVC: UIViewController {
         models = Array(carList!.list!.keys)
         models.sort(){$0 < $1}
         selectedModels = models
-        
         
         tableView.reloadData()
         
@@ -88,6 +89,7 @@ class AddCarVC: UIViewController {
                     self?.tableView.reloadData()
                 } else {
                     self?.selectedModels = x!
+                    self?.tableView.isHidden = false
                     self?.tableView.reloadData()
                 }
             })
@@ -129,16 +131,16 @@ class AddCarVC: UIViewController {
     
     // MARK: - Private Functions
     // MARK: - UI
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
-//    private func closeKeyB(){
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-//        view.addGestureRecognizer(tap)
-//
-//    }
+    @objc func dismissKeyboard(recognize: UIPanGestureRecognizer) {
+        view.endEditing(true)
+    }
+    private func closeKeyB(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(recognize:)))
+        view.addGestureRecognizer(tap)
+    }
     
     private func setupUI() {
+//        closeKeyB()
         setupTableView()
         
         typeTVField.inputView = pickerView
@@ -196,33 +198,36 @@ extension AddCarVC: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UITextFieldDelegate
 extension AddCarVC: UITextFieldDelegate {
     
-    
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        activeDataArray = []
         if textField == mainTFs[0] {
+            view.gestureRecognizers?.forEach {
+                $0.isEnabled = false
+            }
             tableView.isHidden = false
         }
-        if textField == typeTVField {
-            activeDataArray = arrayInfoCar.typeTVList
+        if textField == mainTFs[1] {
+//            closeKeyB()
         }
-        if textField == typeFuelField {
-            activeDataArray = arrayInfoCar.typeFuelTVList
+        if textField == mainTFs[2] {
+//            closeKeyB()
         }
-        if textField == typeEngineField {
-            activeDataArray = arrayInfoCar.typeEngineList
+        if textField == mainTFs[3] {
+//            closeKeyB()
         }
         if textField == ageTVField {
-            activeDataArray = arrayInfoCar.ageTVList
+//            closeKeyB()
         }
         if textField == colorCarField {
-            activeDataArray = arrayInfoCar.colorTVList
+//            closeKeyB()
         }
-        pickerView.reloadAllComponents()
         pickerView.isHidden = false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        view.gestureRecognizers?.forEach {
+            $0.isEnabled = true
+        }
+        
         tableView.isHidden = true
         
         for tf in mainTFs {

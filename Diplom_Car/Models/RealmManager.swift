@@ -38,7 +38,7 @@ class RealmManager {
     
     class func delete<T: Object>(object: T) {
         try? realm.write({
-            realm.delete(object)
+            realm.delete(object, cascading: true)
         })
     }
 }

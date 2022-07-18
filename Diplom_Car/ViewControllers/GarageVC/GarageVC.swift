@@ -14,14 +14,14 @@ class GarageVC: UIViewController {
     private var models = [TransportVehicleModel]() { didSet {
         emptyLabel.isHidden = !models.isEmpty ? true : false
     } }
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var AddButton: UIButton!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         setupUI()
         fetchTransportVehicle()
     }
@@ -29,7 +29,7 @@ class GarageVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-    
+        
         tableView.rowHeight = 70
         
         
@@ -99,4 +99,31 @@ extension GarageVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            let alertController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .actionSheet)
+            let deleteAction = UIAlertAction(title: "delete", style: .destructive) { [weak self] _ in
+                guard let self = self else { return }
+                
+                let model = self.models[indexPath.row]
+                
+                RealmManager.delete(object: model)
+                
+                self.models = RealmManager.read(type: TransportVehicleModel.self)
+                
+                tableView.reloadData()
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        }
+        item.image = UIImage(systemName: "trash")
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        
+        return swipeActions
+    }
 }
